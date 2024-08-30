@@ -25,3 +25,6 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.Run();
+
+
+Console.WriteLine("-------------------- Web server started ------------------------");

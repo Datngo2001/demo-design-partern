@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  app:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5023
+      - ASPNETCORE_HTTPS_PORTS=7090
+      # - ASPNETCORE_URLS=https://+:7090;http://+:5023
+      - ASPNETCORE_URLS=http://+:5023 # TODO Config https
+    ports:
+      - "5023:5023"
+      - "7090:7090"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
